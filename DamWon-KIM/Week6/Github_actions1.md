@@ -30,7 +30,6 @@ Re-run jobs - 한가지 작업에 대해 재실행 가능함
 Create or Update Comment [Github Action] </br>
 
 ![github_community.jpg](github_community.jpg)
-
 ![community_actions.jpg](community_actions.jpg)
 
 
@@ -55,4 +54,4 @@ comment-with-api:
       }
 ```
 
-      Commit changes
+Commit changes
