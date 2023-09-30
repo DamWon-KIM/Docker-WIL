@@ -1,3 +1,5 @@
+#### [github actions] [생활코딩] 강의
+
 ### action이란?
 
 actions 안에 들어가면 list가 나오게 되는데, CI라고 적힌 것이 글쓴이가 만든 action이다.
@@ -15,15 +17,15 @@ Actions를 리로드하면 커밋이 등록되어있고 지금 구동중이라�
 
 ### 어떻게 action을 사용하는 가
 
-Create a new reposiotory </br>
-action-tutorials : Repository name </br>
-Public </br>
+  Create a new reposiotory </br>
+  action-tutorials : Repository name </br>
+  Public </br>
 
 
-Actions 탭으로 들어가면 깃허브에서 제공하는 미리 만들어진 템플릿 action들을 선택할 수 있다. </br>
-Set up a workflow yourself </br>
+  Actions 탭으로 들어가면 깃허브에서 제공하는 미리 만들어진 템플릿 action들을 선택할 수 있다. </br>
+  Set up a workflow yourself </br>
 
-action-tutorials/.github/workflows/main.yml : action의 실체이다. </br>
+  action-tutorials/.github/workflows/main.yml : action의 실체이다. </br>
 
 ```
 name : Hello World :action name"
@@ -110,16 +112,16 @@ jobs:
   다음에 나오는 명령어들에서 사용할 수 있도록 해주는 action이다. </br>
 
 
-  Start commit </br>
-  Commit Changes </br>
-  git pull -> 지금 생성된 github checkout yml 파일이 다운된다 </br>
+Start commit </br>
+Commit Changes </br>
+git pull -> 지금 생성된 github checkout yml 파일이 다운된다 </br>
 
-  vim main.html </br>
-  hi 입력하고 </br>
-  git commit -am "update hi checkout" </br>
+vim main.html </br>
+hi 입력하고 </br>
+git commit -am "update hi checkout" </br>
 
-  Run ls -al에서 </br>
-  .git, .github, main.html으로 이전과는 다르게 현재 우리가 보고 있는 저장소가 runner에 checkout 되었음을 볼 수 있다. </br>
+Run ls -al에서 </br>
+.git, .github, main.html으로 이전과는 다르게 현재 우리가 보고 있는 저장소가 runner에 checkout 되었음을 볼 수 있다. </br>
 
   ** runner에 있는 저장소를 이용해서 여러가지 작업을 처리할 수 있게 된 것 </br>
 
