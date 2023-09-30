@@ -93,6 +93,65 @@ jobs:
   runs-on: ubuntu-latest
 
   steps:
-  - uses: actions/chekcout@v2 "주석처리 해제"
+  - uses: actions/checkcout@v2 "주석처리 해제" "다른 사람이 만든 action을 실행하고 싶을때, uses란 키워드를 사용"
+   "github.com/actions/checkout 이 저장소가 checkout이라하는 action의 저장소이고, github에서 만든 것" 
+  - name: Run a one-line script
+    run: pwd
+  - name: Run ls -al
+    run: ls -al
 
+```
+
+오른쪽 Marketplace에 todo라고 검색 시, todo-actions
+* TODO : 지금은 못하지만 언젠가 해야 한다고 표시를 하는 것으로, 저장소에 도착하게 되면 자동으로 이슈를 발급해줌
+* TODO 주석을 삭제시, 이슈를 클로즈 시켜주는 기능을 가지는 action이다.
+
+* actions/checktout - runner를 만들 시 기본적으로 깡통인 것을, action이 실행되고 있는 저장소를 클론하고 체크아웃해서
+  다음에 나오는 명령어들에서 사용할 수 있도록 해주는 action이다.
+
+
+  Start commit
+  Commit Changes
+  git pull -> 지금 생성된 github checkout yml 파일이 다운된다
+
+  vim main.html
+  hi 입력하고
+  git commit -am "update hi checkout"
+
+  Run ls -al에서
+  .git, .github, main.html으로 이전과는 다르게 현재 우리가 보고 있는 저장소가 runner에 checkout 되었음을 볼 수 있다.
+
+  ** runner에 있는 저장소를 이용해서 여러가지 작업을 처리할 수 있게 된 것
+
+  runner가 구동된 시점에서 여러가지 상태정보
+  어떤 맥락, 문맥에서 실행됬는지 알게 해 준다 - context, 환경변수라 한다.
+
+## github action variable context
+Contexts and expression syntax for GitHub Actions
+github에서 제공하는 여러가지 환경변수들
+어떤 버전으로 인해서 이루어졌는가
+github.actor
+github.repository
+github.sha
+
+New workflow
+action-tutorials/.github/workflows/main.yml
+
+# 환경변수 주입시 env
+
+```
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "context"
+      env:
+        CMMIIT_ID: ${{ github.sha }}
+      run: echo "Commit id ==> $COMMIT_ID"
 ```
