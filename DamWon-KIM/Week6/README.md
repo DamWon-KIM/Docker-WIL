@@ -139,13 +139,13 @@ github.sha </br>
 New workflow </br>
 action-tutorials/.github/workflows/main.yml </br>
 
-# 환경변수 주입시 env
+### 환경변수 주입시 env
 
 ```
 name: CI
 
 on: [push]
-
+ 
 jobs:
   build:
 
@@ -157,3 +157,43 @@ jobs:
         CMMIIT_ID: ${{ github.sha }}
       run: echo "Commit id ==> $COMMIT_ID"
 ```
+
+runner를 동작시킬 때, context를 잘 활용해서 여러가지 복잡한 작업을 처리할 수 있다.
+
+### secret 정보
+password 정보를 action에 넣으면 소스코드에 노출되어 안된다.
+그런면에서 필요한 것이, secret
+
+Settings - Secrets 들어가면
+Add a new secret
+Name : ASSWORD
+Add Secret
+
+action으로 가서 New workflow 생성 시 
+
+```
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+  runs-on: ubuntu-latest
+
+  steps:
+  -name: Print Password
+   env:
+      MY_PASSWORD: ${{secrets.PASSWORD}}
+   run: echo My password is $MY_PASSWORD
+```
+
+password.yml
+commit new file
+action이 동작한 것을 찾아서 Actions-CI - Create password.yml- build 부분 Print Password 볼 시, 아까 짠 코드에 의해서
+비밀번호가 ***로 출력이 된다.
+보안에 이슈가 생기는 것을 방지할 수 있다.
+
+이후로 action에 어떤 event들이 있는지, 어떤 환경변수들 "variables"이 제공되는지, action이 시작되었을 때,
+어떻게 하면 node.js와 python에서 복잡한 일을 처리할 수 있는지 찾아보면 좋다.
+나만의 action 뿐 아니라, 다른 사람들도 사용할 수 있는 보편적인 action을 만들어서 조직을 위해 공개를 하는 것도 좋겠다.
