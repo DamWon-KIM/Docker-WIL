@@ -1,3 +1,3 @@
 [submodule "nx006/week6/djangocicd"]
 	path = nx006/week6/djangocicd
-	url = ./nx006/week6/djangocicd
+	url = https://github.com/nx006/django-cicd.git
